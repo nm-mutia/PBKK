@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+     
+	<bean id="myBookCover" class="com.mutia.bookapp.BrightBookCover"></bean>
+	
+	<context:property-placeholder location="classpath:book.attributes"/>
+	
+    <bean id="myBookFantasy" class="com.mutia.bookapp.FantasyBook">  
+    	<!-- Setter injection -->
+    	<property name="bookCover" ref="myBookCover"></property>
+    	<property name="title" value="${sir.title}"></property>
+    	<property name="writer" value="${sir.writer}"></property>
+    	<property name="publisher" value="${sir.publisher}"></property>
+    	<property name="year" value="${sir.year}"></property>
+    </bean>
+    
+    <bean id="myBookFantasy2" class="com.mutia.bookapp.FantasyBook">  
+    	<!-- Setter injection -->
+    	<property name="bookCover" ref="myBookCover"></property>
+    	<property name="title" value="${sir2.title}"></property>
+    	<property name="writer" value="${sir2.writer}"></property>
+    	<property name="publisher" value="${sir2.publisher}"></property>
+    	<property name="year" value="${sir2.year}"></property>
+    </bean>
+    
+    <bean id="myBookEncyclo" class="com.mutia.bookapp.EncyclopaediaBook" scope="prototype">      	
+    	<!-- Setter injection -->
+    	<property name="bookCover" ref="myBookCover"></property>
+    	<property name="title" value="${opp.title}"></property>
+    	<property name="writer" value="${opp.writer}"></property>
+    	<property name="publisher" value="${opp.publisher}"></property>
+    	<property name="year" value="${opp.year}"></property>
+    </bean>
+    
+    <bean id="myBookEncyclo2" class="com.mutia.bookapp.EncyclopaediaBook" scope="prototype">      	
+    	<!-- Setter injection -->
+    	<property name="bookCover" ref="myBookCover"></property>
+    	<property name="title" value="${opp2.title}"></property>
+    	<property name="writer" value="${opp2.writer}"></property>
+    	<property name="publisher" value="${opp2.publisher}"></property>
+    	<property name="year" value="${opp2.year}"></property>
+    </bean>
+	
+</beans>
