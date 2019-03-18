@@ -12,6 +12,7 @@ public class App {
 		book.getGenre();
 		
 		FantasyBook fantasyB = (FantasyBook)book;
+		FantasyBook fantasyB2 = (FantasyBook)book;
 		System.out.println(fantasyB.getBookCover().getCover());
 		System.out.println("Title    : " + fantasyB.getTitle());
 		System.out.println("Writer   : " + fantasyB.getWriter());
@@ -22,7 +23,8 @@ public class App {
 		Book book2 = context.getBean("myBookEncyclo", Book.class);
 		book2.getGenre();
 		
-		EncyclopaediaBook eb = (EncyclopaediaBook)book2;
+		EncyclopaediaBook eb = context.getBean("myBookEncyclo", EncyclopaediaBook.class);;
+		EncyclopaediaBook eb3 = context.getBean("myBookEncyclo", EncyclopaediaBook.class);
 		System.out.println(eb.getBookCover().getCover());
 		System.out.println("Title    : " + eb.getTitle());
 		System.out.println("Writer   : " + eb.getWriter());
@@ -43,6 +45,13 @@ public class App {
 		System.out.println("Writer   : " + eb2.getWriter());
 		System.out.println("Publisher: " + eb2.getPublisher());
 		System.out.println("Year 	 : " + eb2.getYear());
+		
+		System.out.println("Singleton");
+		System.out.println("FantasyBook : " + fantasyB);
+		System.out.println("FantasyBook2: " + fantasyB2);
+		System.out.println("Prototype");
+		System.out.println("EncycloBook3 : " + eb);
+		System.out.println("EncycloBook4 : " + eb3);
 		
 		context.close();
 	}
